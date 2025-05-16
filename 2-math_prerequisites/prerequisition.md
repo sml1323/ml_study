@@ -1,5 +1,3 @@
-# 수학 노트 정리 (LaTeX 적용)
-
 ## 1. Math notation - Code (수학 표기법 - 코드)
 
 * $y = e^x$

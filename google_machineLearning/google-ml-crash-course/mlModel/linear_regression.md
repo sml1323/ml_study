@@ -123,72 +123,73 @@ $$\text{새 가중치} = 1.2$$
 더이상 손실이 줄어들지 않는 지점, 수렴할때까지 반복한다.
 
 
+
 <details>
 <summary>MSE 손실 함수의 가중치(w) 및 편향(b)에 대한 기울기 유도 과정 </summary>
 
 ## 1. 모델 및 손실 함수 정의
 
 선형 회귀 모델은 다음과 같이 정의된다:
-$$ \hat{y}\_i = wx\_i + b $$
+$$ \hat{y}_i = wx_i + b $$
 여기서:
-- $\hat{y}\_i$: $i$번째 데이터에 대한 모델의 예측값
+- $\hat{y}_i$: $i$번째 데이터에 대한 모델의 예측값
 - $w$: 가중치 (weight)
-- $x\_i$: $i$번째 데이터의 특성(feature) 값
+- $x_i$: $i$번째 데이터의 특성(feature) 값
 - $b$: 편향 (bias)
 
 평균 제곱 오차 (MSE, Mean Squared Error) 손실 함수 $L$은 다음과 같다 :
-$$ L = \frac{1}{N} \sum_{i=1}^{N} (y\_i - \hat{y}\_i)^2 = \frac{1}{N} \sum_{i=1}^{N} (y\_i - (wx\_i + b))^2 $$
+$$ L = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 = \frac{1}{N} \sum_{i=1}^{N} (y_i - (wx_i + b))^2 $$
 여기서:
 - $N$: 전체 데이터 포인트의 수
-- $y\_i$: $i$번째 데이터의 실제 값
+- $y_i$: $i$번째 데이터의 실제 값
 
-## 2. 가중치 $w$에 대한 편미분 (기울기) $\frac{\partial L}{\partial w}$
+## 2. 가중치 $w$에 대한 편미분 (기울기)
 
 손실 함수 $L$을 가중치 $w$에 대해 편미분하여 $w$에 대한 기울기를 구한다.
 
-$$ \frac{\partial L}{\partial w} = \frac{\partial}{\partial w} \left( \frac{1}{N} \sum_{i=1}^{N} (y\_i - (wx\_i + b))^2 \right) $$
+$$ \frac{\partial L}{\partial w} = \frac{\partial}{\partial w} \left( \frac{1}{N} \sum_{i=1}^{N} (y_i - (wx_i + b))^2 \right) $$
 
 합계의 미분은 미분의 합계와 같으므로, $\frac{1}{N}$과 $\sum$는 밖으로 나올 수 있다:
-$$ \frac{\partial L}{\partial w} = \frac{1}{N} \sum_{i=1}^{N} \frac{\partial}{\partial w} (y\_i - (wx\_i + b))^2 $$
+$$ \frac{\partial L}{\partial w} = \frac{1}{N} \sum_{i=1}^{N} \frac{\partial}{\partial w} (y_i - (wx_i + b))^2 $$
 
-이제 내부의 $(y\_i - (wx\_i + b))^2$ 항을 $w$에 대해 미분한다. 연쇄 법칙(Chain Rule)을 사용한다.
-$u = y\_i - wx\_i - b$ 라고 하면, $\frac{\partial}{\partial w} (u^2) = 2u \cdot \frac{\partial u}{\partial w}$ 이다.
+이제 내부의 $(y_i - (wx_i + b))^2$ 항을 $w$에 대해 미분한다. 연쇄 법칙(Chain Rule)을 사용한다.
+$u = y_i - wx_i - b$ 라고 하면, $\frac{\partial}{\partial w} (u^2) = 2u \cdot \frac{\partial u}{\partial w}$ 이다.
 
 먼저 $\frac{\partial u}{\partial w}$를 계산한다:
-$$ \frac{\partial u}{\partial w} = \frac{\partial}{\partial w} (y\_i - wx\_i - b) $$
-$y\_i$와 $b$는 $w$에 대해 상수이므로 미분하면 0이 된다. $-wx\_i$를 $w$로 미분하면 $-x\_i$가 된다.
-$$ \frac{\partial u}{\partial w} = -x\_i $$
+$$ \frac{\partial u}{\partial w} = \frac{\partial}{\partial w} (y_i - wx_i - b) $$
+$y_i$와 $b$는 $w$에 대해 상수이므로 미분하면 0이 된다. $-wx_i$를 $w$로 미분하면 $-x_i$가 된다.
+$$ \frac{\partial u}{\partial w} = -x_i $$
 
 이제 이를 원래 식에 대입한다:
-$$ \frac{\partial}{\partial w} (y\_i - (wx\_i + b))^2 = 2(y\_i - (wx\_i + b))(-x\_i) $$
+$$ \frac{\partial}{\partial w} (y_i - (wx_i + b))^2 = 2(y_i - (wx_i + b))(-x_i) $$
 
 이것을 전체 합계 식에 다시 넣는다:
-$$ \frac{\partial L}{\partial w} = \frac{1}{N} \sum_{i=1}^{N} 2(y\_i - (wx\_i + b))(-x\_i) $$
+$$ \frac{\partial L}{\partial w} = \frac{1}{N} \sum_{i=1}^{N} 2(y_i - (wx_i + b))(-x_i) $$
 
 정리하면 다음과 같다:
-$$ \frac{\partial L}{\partial w} = -\frac{2}{N} \sum_{i=1}^{N} (y\_i - (wx\_i + b))x\_i $$
+$$ \frac{\partial L}{\partial w} = -\frac{2}{N} \sum_{i=1}^{N} (y_i - (wx_i + b))x_i $$
 
-## 3. 편향 $b$에 대한 편미분 (기울기) $\frac{\partial L}{\partial b}$
+## 3. 편향 $b$에 대한 편미분 (기울기) 
 
 손실 함수 $L$을 편향 $b$에 대해 편미분하여 $b$에 대한 기울기를 구한다.
 
-$$ \frac{\partial L}{\partial b} = \frac{\partial}{\partial b} \left( \frac{1}{N} \sum_{i=1}^{N} (y\_i - (wx\_i + b))^2 \right) $$
-$$ \frac{\partial L}{\partial b} = \frac{1}{N} \sum_{i=1}^{N} \frac{\partial}{\partial b} (y\_i - (wx\_i + b))^2 $$
+$$ \frac{\partial L}{\partial b} = \frac{\partial}{\partial b} \left( \frac{1}{N} \sum_{i=1}^{N} (y_i - (wx_i + b))^2 \right) $$
+$$ \frac{\partial L}{\partial b} = \frac{1}{N} \sum_{i=1}^{N} \frac{\partial}{\partial b} (y_i - (wx_i + b))^2 $$
 
-연쇄 법칙을 사용한다. $u = y\_i - wx\_i - b$ 라고 하면, $\frac{\partial}{\partial b} (u^2) = 2u \cdot \frac{\partial u}{\partial b}$ 이다.
+연쇄 법칙을 사용한다. $u = y_i - wx_i - b$ 라고 하면, $\frac{\partial}{\partial b} (u^2) = 2u \cdot \frac{\partial u}{\partial b}$ 이다.
 
 먼저 $\frac{\partial u}{\partial b}$를 계산한다 :
-$$ \frac{\partial u}{\partial b} = \frac{\partial}{\partial b} (y\_i - wx\_i - b) $$
-$y\_i$와 $-wx\_i$는 $b$에 대해 상수이므로 미분하면 0이 된다.$-b$를 $b$로 미분하면 $-1$이 된다.
+$$ \frac{\partial u}{\partial b} = \frac{\partial}{\partial b} (y_i - wx_i - b) $$
+$y_i$와 $-wx_i$는 $b$에 대해 상수이므로 미분하면 0이 된다.$-b$를 $b$로 미분하면 $-1$이 된다.
 $$ \frac{\partial u}{\partial b} = -1 $$
 
 이제 이를 원래 식에 대입한다.
-$$ \frac{\partial}{\partial b} (y\_i - (wx\_i + b))^2 = 2(y\_i - (wx\_i + b))(-1) $$
+$$ \frac{\partial}{\partial b} (y_i - (wx_i + b))^2 = 2(y_i - (wx_i + b))(-1) $$
 
 이것을 전체 합계 식에 다시 넣는다:
-$$ \frac{\partial L}{\partial b} = \frac{1}{N} \sum_{i=1}^{N} 2(y\_i - (wx\_i + b))(-1) $$
+$$ \frac{\partial L}{\partial b} = \frac{1}{N} \sum_{i=1}^{N} 2(y_i - (wx_i + b))(-1) $$
 
 정리하면 다음과 같다:
-$$ \frac{\partial L}{\partial b} = -\frac{2}{N} \sum_{i=1}^{N} (y\_i - (wx\_i + b)) $$
+$$ \frac{\partial L}{\partial b} = -\frac{2}{N} \sum_{i=1}^{N} (y_i - (wx_i + b)) $$
 
 </details>

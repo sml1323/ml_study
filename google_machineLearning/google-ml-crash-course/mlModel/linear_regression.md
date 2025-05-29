@@ -138,7 +138,7 @@ $$ \hat{y}_i = wx_i + b $$
 - $b$: 편향 (bias)
 
 평균 제곱 오차 (MSE, Mean Squared Error) 손실 함수 $L$은 다음과 같다 :
-$$ L = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 = \frac{1}{N} \sum_{i=1}^{N} (y_i - (wx_i + b))^2 $$
+$$L = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 = \frac{1}{N} \sum_{i=1}^{N} (y_i - (wx_i + b))^2$$
 여기서:
 - $N$: 전체 데이터 포인트의 수
 - $y_i$: $i$번째 데이터의 실제 값
@@ -171,25 +171,9 @@ $$\frac{\partial L}{\partial w} = -\frac{2}{N} \sum_{i=1}^{N} (y_i - (wx_i + b))
 
 ## 3. 편향 $b$에 대한 편미분 (기울기) $\frac{\partial L}{\partial b}$
 
-손실 함수 $L$을 편향 $b$에 대해 편미분하여 $b$에 대한 기울기를 구한다.
-
-$$ \frac{\partial L}{\partial b} = \frac{\partial}{\partial b} \left( \frac{1}{N} \sum_{i=1}^{N} (y_i - (wx_i + b))^2 \right) $$
-$$ \frac{\partial L}{\partial b} = \frac{1}{N} \sum_{i=1}^{N} \frac{\partial}{\partial b} (y_i - (wx_i + b))^2 $$
-
-연쇄 법칙을 사용한다. $u = y_i - wx_i - b$ 라고 하면, $\frac{\partial}{\partial b} (u^2) = 2u \cdot \frac{\partial u}{\partial b}$ 이다.
-
-먼저 $\frac{\partial u}{\partial b}$를 계산한다 :
-$$ \frac{\partial u}{\partial b} = \frac{\partial}{\partial b} (y_i - wx_i - b) $$
-$y_i$와 $-wx_i$는 $b$에 대해 상수이므로 미분하면 0이 된다.$-b$를 $b$로 미분하면 $-1$이 된다.
-$$ \frac{\partial u}{\partial b} = -1 $$
-
-이제 이를 원래 식에 대입한다.
-$$ \frac{\partial}{\partial b} (y_i - (wx_i + b))^2 = 2(y_i - (wx_i + b))(-1) $$
-
-이것을 전체 합계 식에 다시 넣는다:
-$$ \frac{\partial L}{\partial b} = \frac{1}{N} \sum_{i=1}^{N} 2(y_i - (wx_i + b))(-1) $$
+마찬가지로 손실 함수 $L$을 편향 $b$에 대해 편미분하여 $b$에 대한 기울기를 구한다.
 
 정리하면 다음과 같다:
-$$ \frac{\partial L}{\partial b} = -\frac{2}{N} \sum_{i=1}^{N} (y_i - (wx_i + b)) $$
+$$\frac{\partial L}{\partial b} = -\frac{2}{N} \sum_{i=1}^{N} (y_i - (wx_i + b))$$
 
 </details>

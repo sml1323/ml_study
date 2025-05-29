@@ -123,6 +123,7 @@ $$\text{새 가중치} = 1.2$$
 더이상 손실이 줄어들지 않는 지점, 수렴할때까지 반복한다.
 
 
+
 <details>
 <summary>MSE 손실 함수의 가중치(w) 및 편향(b)에 대한 기울기 유도 과정 </summary>
 
@@ -151,8 +152,8 @@ $$ \frac{\partial L}{\partial w} = \frac{\partial}{\partial w} \left( \frac{1}{N
 합계의 미분은 미분의 합계와 같으므로, $\frac{1}{N}$과 $\sum$는 밖으로 나올 수 있다:
 $$ \frac{\partial L}{\partial w} = \frac{1}{N} \sum_{i=1}^{N} \frac{\partial}{\partial w} (y_i - (wx_i + b))^2 $$
 
-이제 내부의 $(y_i - (wx_i + b))^2$ 항을 $w$에 대해 미분합니다. 연쇄 법칙(Chain Rule)을 사용한다.
-$u = y_i - wx_i - b$ 라고 하면, $\frac{\partial}{\partial w} (u^2) = 2u \cdot \frac{\partial u}{\partial w}$ 입니다.
+이제 내부의 $(y_i - (wx_i + b))^2$ 항을 $w$에 대해 미분한다. 연쇄 법칙(Chain Rule)을 사용한다.
+$u = y_i - wx_i - b$ 라고 하면, $\frac{\partial}{\partial w} (u^2) = 2u \cdot \frac{\partial u}{\partial w}$ 이다.
 
 먼저 $\frac{\partial u}{\partial w}$를 계산한다:
 $$ \frac{\partial u}{\partial w} = \frac{\partial}{\partial w} (y_i - wx_i - b) $$

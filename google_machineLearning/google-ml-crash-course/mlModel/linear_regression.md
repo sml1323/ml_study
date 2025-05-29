@@ -16,7 +16,11 @@
 |           4.42          |       14        |
 |           2.37          |       24        |
 
+
+
 ![Linear Regression Graph](../../images/linear_regression.png)
+
+
 그래프의 실제 점들을 통과하는 선을 그려서 자체 모델을 만들 수 있다.
 
 ---

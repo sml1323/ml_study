@@ -141,9 +141,7 @@ $$\hat{y}_i = wx_i + b$$
 평균 제곱 오차 (MSE, Mean Squared Error) 손실 함수 $L$은 다음과 같다 :
 
 
-$$
-L = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 = \frac{1}{N} \sum_{i=1}^{N} (y_i - (wx_i + b))^2
-$$
+$$L = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 = \frac{1}{N} \sum_{i=1}^{N} (y_i - (wx_i + b))^2$$
 
 
 여기서:

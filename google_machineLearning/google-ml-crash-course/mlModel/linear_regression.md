@@ -131,6 +131,7 @@ $$\text{새 가중치} = 1.2$$
 
 선형 회귀 모델은 다음과 같이 정의된다:
 $$\hat{y}_i = wx_i + b$$
+
 여기서:
 - $\hat{y}_i$: $i$번째 데이터에 대한 모델의 예측값
 - $w$: 가중치 (weight)
@@ -138,7 +139,6 @@ $$\hat{y}_i = wx_i + b$$
 - $b$: 편향 (bias)
 
 평균 제곱 오차 (MSE, Mean Squared Error) 손실 함수 $L$은 다음과 같다 :
-
 $$L = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 = \frac{1}{N} \sum_{i=1}^{N} (y_i - (wx_i + b))^2$$
 
 여기서:

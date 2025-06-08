@@ -93,3 +93,21 @@ $Precision = \frac{올바르게 분류된 positives}{positive로 분류된 모�
     거짓 양성(FP): 없음  - 1개 감소
     
     거짓 음성(FN): B, D - 1개 증가
+
+
+
+## ROC 및 AUC
+
+### **Receiver-operating characteristic curve: ROC**
+
+- 모든 임계값에서의 모델 성능을 시각화
+- 성능 측정을 위한 정량화된 값은 ROC 그래프의 면적을 나타내는 AUC 이다.
+
+### **Area under the curve :AUC**
+
+![image.png](../../images/rocauc.png)
+
+- X축은 FPR - 거짓 양성율, Y축은 TPR - 참양성율
+- 임계값의 변화에 따른 x, y 값의 변화를 시각화 한 그래프
+- AUC 가 높을수록 좋은 모델이다.
+- 임계값을 낮추면 TPR, FPR 둘다 1에 가까워 지기 때문에 의미가 없고, 그래프의 왼쪽 부분이 높을수록 - 이부분은 임계값이 높은, FPR이 낮은 부분 - 좋은 모델이다.
